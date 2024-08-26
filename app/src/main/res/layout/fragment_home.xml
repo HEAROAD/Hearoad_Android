@@ -44,6 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="12dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/iv_home_background"
         app:tabBackground="@color/selector_tab_color"
         app:tabIndicatorColor="@color/main"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_roundbox_10"
+    android:backgroundTint="#F8F8F8"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/iv_chatlist_profile"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:src="@drawable/shape_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp" />
+    <TextView
+        android:id="@+id/tv_chatlist_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@+id/iv_chatlist_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_chatlist_profile"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:id="@+id/tv_chatlist_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2024.8.01, 경주 보문로"
+        android:textColor="@color/gray4"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_chatlist_title"
+        app:layout_constraintBottom_toBottomOf="@id/iv_chatlist_profile"
+        app:layout_constraintStart_toStartOf="@+id/tv_chatlist_title"
+        android:layout_marginTop="4dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
