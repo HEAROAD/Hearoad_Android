@@ -82,6 +82,7 @@
                 android:layout_marginTop="24dp"
                 android:text="서비스 가이드" />
             <TextView
+                android:id="@+id/tv_mypage_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/font"
