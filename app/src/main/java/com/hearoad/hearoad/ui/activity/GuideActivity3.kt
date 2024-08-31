@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.hearoad.hearoad.R
 import com.hearoad.hearoad.data.network.RetrofitCreateChatting
+import com.hearoad.hearoad.utils.GlobalApplication
 
 class GuideActivity3 : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class GuideActivity3 : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
 
     private var selectedGuide: ConstraintLayout? = null
-    private val token = "YOUR_ACCESS_TOKEN" // 실제 토큰으로 교체
+    private val token = GlobalApplication.spf.accessToken!!
     private val retrofitCreateChatting by lazy { RetrofitCreateChatting(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,9 +38,9 @@ class GuideActivity3 : AppCompatActivity() {
         clGuide5 = findViewById(R.id.cl_guide_5)
 
         clGuide1.setOnClickListener { selectGuide(clGuide1, "다쳤어요") }
-        clGuide2.setOnClickListener { selectGuide(clGuide2, "가족") }
-        clGuide3.setOnClickListener { selectGuide(clGuide3, "친구") }
-        clGuide4.setOnClickListener { selectGuide(clGuide4, "모르는 사람") }
+        clGuide2.setOnClickListener { selectGuide(clGuide2, "아파요") }
+        clGuide3.setOnClickListener { selectGuide(clGuide3, "사라졌어요") }
+        clGuide4.setOnClickListener { selectGuide(clGuide4, "제3자에 의해 위협을 당했어요") }
         clGuide5.setOnClickListener { selectGuide(clGuide5, "직접입력") }
 
         btnNext.setOnClickListener {

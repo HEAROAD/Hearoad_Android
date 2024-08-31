@@ -1,7 +1,6 @@
 package com.hearoad.hearoad.data.model.response
 
 data class CreateChatRoomResponse(
-    val isSuccess: Boolean,
     val response: ChatRoomResponseData
 )
 
@@ -10,6 +9,5 @@ data class ChatRoomResponseData(
 )
 
 data class SendMessageResponse(
-    val isSuccess: Boolean,
     val response: Any
 )

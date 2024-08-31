@@ -49,7 +49,7 @@ class RetrofitCreateChatting(private val context: Context) {
             "type" to type,
             "message" to message
         )
-        ksl?.let { messageParams["ksl"] = it }
+        ksl?.let { messageParams["file"] = it }
 
         chatApiService.sendMessage("Bearer $token", roomId, messageParams).enqueue(object : Callback<SendMessageResponse> {
             override fun onResponse(call: Call<SendMessageResponse>, response: Response<SendMessageResponse>) {
