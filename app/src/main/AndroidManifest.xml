@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+<!--    <uses-permission android:name="android.permission.CAMERA"/>-->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -37,6 +37,12 @@
             android:name=".ui.activity.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
+
+        <activity android:name=".ui.activity.GuideActivity"/>
+        <activity android:name=".ui.activity.GuideActivity2"/>
+        <activity android:name=".ui.activity.GuideActivity3"/>
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
