@@ -1,7 +1,7 @@
 package com.hearoad.hearoad.ui.adapter
 
 import com.hearoad.hearoad.databinding.ItemSoundBinding
-import com.hearoad.hearoad.ui.viewmodel.SoundItem
+//import com.hearoad.hearoad.ui.viewmodel.SoundItem
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

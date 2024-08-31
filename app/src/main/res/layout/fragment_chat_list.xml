@@ -6,8 +6,10 @@
     tools:context=".ui.fragment.ChatListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_chatlist"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_chat_room" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

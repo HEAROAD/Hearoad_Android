@@ -15,6 +15,7 @@ import com.hearoad.hearoad.R
 import com.hearoad.hearoad.databinding.FragmentHomeBinding
 import com.hearoad.hearoad.ui.adapter.HomeAdapter
 
+
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

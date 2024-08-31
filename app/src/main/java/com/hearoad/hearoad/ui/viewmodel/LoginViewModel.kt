@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hearoad.hearoad.data.model.response.AuthResponse
-import com.hearoad.hearoad.data.network.NetworkResult
+//import com.hearoad.hearoad.data.network.NetworkResult
 import kotlinx.coroutines.launch
 
 //class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {

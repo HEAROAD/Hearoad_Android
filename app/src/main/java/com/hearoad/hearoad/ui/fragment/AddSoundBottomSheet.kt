@@ -12,8 +12,6 @@ import com.hearoad.hearoad.data.api.ApiService
 import com.hearoad.hearoad.data.model.request.SoundRequest
 import com.hearoad.hearoad.data.network.RetrofitClient
 import com.hearoad.hearoad.databinding.BottomsheetAddsoundBinding
-import com.hearoad.hearoad.ui.viewmodel.SoundItem
-import com.hearoad.hearoad.ui.viewmodel.SoundViewModel
 import com.hearoad.hearoad.utils.GlobalApplication
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
@@ -24,7 +22,7 @@ class AddSoundBottomSheet : BottomSheetDialogFragment() {
 
     private var _binding: BottomsheetAddsoundBinding? = null
     private val binding get() = _binding!!
-    private val soundViewModel: SoundViewModel by activityViewModels()
+//    private val soundViewModel: SoundViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -22,6 +22,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_chatcamera_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cl_chatcamera"/>
+
 <!--    <androidx.camera.view.PreviewView-->
 <!--        android:id="@+id/preview_chatcamera"-->
 <!--        android:layout_width="match_parent"-->
@@ -33,6 +34,7 @@
 <!--        android:id="@+id/overlay"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_chatcamera"
