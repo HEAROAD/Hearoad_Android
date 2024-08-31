@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background">
+    <TextView
+        android:id="@+id/tv_chatcamera_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:text="모습을 촬영해주세요"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"/>
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_chatcamera"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_chatcamera_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cl_chatcamera"/>
+    <com.google.mediapipe.examples.handlandmarker.OverlayView
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_chatcamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/preview_chatcamera"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/et_chatcamera_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="번역된 텍스트가 입력됩니다."
+            android:textSize="20dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical = "10dp"
+            android:background="@drawable/shape_roundbox_10"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_chatcamera_send"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/btn_chatcamera_send"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_send"
+            app:layout_constraintStart_toEndOf="@id/et_chatcamera_translate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_chatcamera_translate"
+            app:layout_constraintBottom_toBottomOf="@id/et_chatcamera_translate"
+            android:layout_marginStart="10dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/shape_roundbox_10_top">
+
+    <!-- 드래그 핸들 -->
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:shapeAppearanceOverlay="@style/ThemeOverlay.Material3.BottomSheetDialog"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="응급 보이스 추가하기"
+        android:textSize="16sp"
+        android:textColor="@color/font"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자주 쓰는 문장을 음성으로 저장해보세요."
+        android:textSize="12sp"
+        android:textColor="@color/gray4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="단어"
+        android:textSize="14sp"
+        android:textColor="@color/font"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="4dp"/>
+    <EditText
+        android:id="@+id/et_addvoice_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_roundborder_10"
+        android:textColor="@color/gray4"
+        android:textSize="12sp"
+        android:hint="자주 사용하는 단어를 입력해주세요."
+        android:padding="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이미지 (선택)"
+        android:textSize="14sp"
+        android:textColor="@color/font"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="4dp"/>
+    <EditText
+        android:id="@+id/et_addvoice_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_roundborder_10"
+        android:textColor="@color/gray4"
+        android:textSize="12sp"
+        android:hint="단어를 식별할 이모티콘을 입력해주세요.  "
+        android:padding="12dp" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_addvoice_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="취소하기"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/gray1"
+            android:background="@drawable/shape_roundbox_10"
+            android:backgroundTint="@color/gray3"
+            android:paddingVertical="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_addvoice_add"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="8dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_addvoice_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="추가하기"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_roundbox_10"
+            android:backgroundTint="@color/main"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_addvoice_cancel"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -19,6 +19,7 @@
 
         <!-- 첫 번째 아이템 -->
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_guide_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
