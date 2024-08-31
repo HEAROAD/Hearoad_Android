@@ -40,7 +40,6 @@
     <!-- 탭 -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_home"
-        android:background="@drawable/shape_roundbox_10_top"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="12dp"

@@ -5,14 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.hearoad.hearoad.R
 import com.hearoad.hearoad.databinding.FragmentHomeBinding
 import com.hearoad.hearoad.ui.adapter.HomeAdapter
-import com.hearoad.hearoad.ui.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
