@@ -15,7 +15,6 @@ import com.hearoad.hearoad.data.model.response.AuthResponse
 import com.hearoad.hearoad.data.network.NetworkResult
 import com.hearoad.hearoad.data.network.RetrofitClient
 import com.hearoad.hearoad.databinding.ActivityLoginBinding
-import com.hearoad.hearoad.ui.viewmodel.LoginViewModel
 import com.hearoad.hearoad.utils.GlobalApplication
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,7 +22,6 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
