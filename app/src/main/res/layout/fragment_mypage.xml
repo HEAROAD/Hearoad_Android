@@ -32,6 +32,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="-12dp"/>
+        <TextView
+            android:id="@+id/tv_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font"
+            android:textSize="16sp"
+            android:text="히로"
+            app:layout_constraintTop_toBottomOf="@id/iv_mypage_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="2dp"/>
 
         <TextView
             android:id="@+id/tv_mypage_myvoice"

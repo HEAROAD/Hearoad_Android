@@ -8,16 +8,22 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hearoad.hearoad.R
 import com.hearoad.hearoad.databinding.FragmentMypageBinding
+import com.hearoad.hearoad.ui.activity.ChatcameraActivity
+import com.hearoad.hearoad.ui.activity.LoginActivity
 import com.hearoad.hearoad.ui.activity.MyvoiceActivity
 import com.hearoad.hearoad.ui.viewmodel.MypageViewModel
+import com.hearoad.hearoad.utils.GlobalApplication
 
 class MypageFragment : Fragment() {
 
     private var _binding: FragmentMypageBinding? = null
     private val binding get() = _binding!!
+    private val mypageViewModel: MypageViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,28 +43,36 @@ class MypageFragment : Fragment() {
             startActivity(intent)
         }
 
+        // ViewModel을 통해 데이터 가져오기
+        mypageViewModel.mypageData.observe(viewLifecycleOwner, Observer { mypageData ->
+            binding.tvMypage.text = mypageData.character
+            if (mypageData.character == "히로") {
+                binding.ivMypage.setImageResource(R.drawable.ic_h)
+            } else {
+                binding.ivMypage.setImageResource(R.drawable.img_frog)
+            }
+        })
+
+
+        // 데이터 로드
+        val token = GlobalApplication.spf.accessToken
+        if (token != null && token.isNotEmpty()) {
+            mypageViewModel.fetchMypageData(token)
+        } else {
+            Toast.makeText(requireContext(), "토큰이 없습니다.", Toast.LENGTH_SHORT).show()
+        }
         // 로그아웃
         binding.tvMypageLogout.setOnClickListener {
-//            logout()
+            logout()
         }
     }
 
-//    private fun logout() {
-//        apiService.logout().enqueue(object : Callback<Void> {
-//            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-//                if (response.isSuccessful) {
-//                    Toast.makeText(requireContext(), "로그아웃 성공", Toast.LENGTH_SHORT).show()
-//                    // 로그아웃 성공 시 추가로 필요한 작업이 있다면 여기에 추가
-//                } else {
-//                    Toast.makeText(requireContext(), "로그아웃 실패", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<Void>, t: Throwable) {
-//                Toast.makeText(requireContext(), "로그아웃 에러: ${t.message}", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//    }
+
+    private fun logout() {
+        GlobalApplication.spf.clearAuthToken()
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
+    }
 
 
     override fun onDestroyView() {
