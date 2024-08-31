@@ -57,8 +57,8 @@
         <!-- 첫 번째 아이템 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_guide_1"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="15dp"
             android:background="@drawable/shape_select">
@@ -100,8 +100,8 @@
         <!-- 도움 아이템 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_guide_2"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="15dp"
             android:layout_marginLeft="20dp"
