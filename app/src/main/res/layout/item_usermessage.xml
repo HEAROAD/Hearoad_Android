@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-    <ImageView
+    <VideoView
         android:id="@+id/iv_usermessage_handsign"
         android:layout_width="200dp"
         android:layout_height="100dp"
