@@ -3,6 +3,7 @@ package com.hearoad.hearoad
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -27,12 +28,19 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.navigation_home)
         }
 
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_home, R.id.navigation_mypage, R.id.navigation_sound
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.navigation_home -> {
+                    // 홈 화면일 때 이미지 변경
+                    binding.btnMainCamera.setImageResource(R.drawable.ic_home_on)
+                }
+                else -> {
+                    // 다른 화면일 때 이미지 변경
+                    binding.btnMainCamera.setImageResource(R.drawable.ic_home_off)
+                }
+            }
+        }
+
         navView.setupWithNavController(navController)
     }
 }
