@@ -65,6 +65,7 @@ class MyvoiceActivity : AppCompatActivity() {
             start()
         }
         binding.tvMyvoice.text = "녹음 중입니다.\n'가나다라마바사'를 5번 말하세요."
+
         binding.btnMyvoice.text = "완료하기"
         isRecording = true
     }

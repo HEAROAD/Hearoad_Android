@@ -16,17 +16,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
-    <ImageView
-        android:id="@+id/btn_main_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_home_on"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/nav_main"
-        android:layout_marginBottom="34dp"
-        android:elevation="8dp"/>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_main"
         android:layout_width="0dp"
@@ -41,5 +30,16 @@
         app:menu="@menu/bottom_nav_menu"
         android:paddingHorizontal="44dp"
         android:elevation="8dp"/>
+
+    <ImageView
+        android:id="@+id/btn_main_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_home_on"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/nav_main"
+        android:layout_marginBottom="30dp"
+        android:elevation="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
