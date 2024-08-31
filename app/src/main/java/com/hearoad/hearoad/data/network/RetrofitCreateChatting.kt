@@ -30,7 +30,7 @@ class RetrofitCreateChatting(private val context: Context) {
 
         chatApiService.createChatRoom("Bearer $token", chatRoomParams).enqueue(object : Callback<CreateChatRoomResponse> {
             override fun onResponse(call: Call<CreateChatRoomResponse>, response: Response<CreateChatRoomResponse>) {
-                if (response.isSuccessful && response.body()?.isSuccess == true) {
+                if (response.isSuccessful) {
                     val roomId = response.body()?.response?.roomId ?: return
                     onSuccess(roomId)
                 } else {
@@ -53,7 +53,7 @@ class RetrofitCreateChatting(private val context: Context) {
 
         chatApiService.sendMessage("Bearer $token", roomId, messageParams).enqueue(object : Callback<SendMessageResponse> {
             override fun onResponse(call: Call<SendMessageResponse>, response: Response<SendMessageResponse>) {
-                if (response.isSuccessful && response.body()?.isSuccess == true) {
+                if (response.isSuccessful) {
                     onSuccess()
                 } else {
                     onFailure("메시지 전송 실패: ${response.message()}")
