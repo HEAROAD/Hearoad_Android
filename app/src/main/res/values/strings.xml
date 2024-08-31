@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Hearoad</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="sound">sound</string>
+    <string name="mypage">mypage</string>
+    <string name="title_activity_chatroom">ChatroomActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
