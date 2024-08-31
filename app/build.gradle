@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.hearoad.hearoad"
-        minSdk 21
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -57,4 +57,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
+
+    //camera
+    implementation 'androidx.camera:camera-camera2:1.1.0'
+    implementation 'androidx.camera:camera-lifecycle:1.1.0'
+    implementation 'androidx.camera:camera-view:1.1.0'
+
+    //mediapipe
+//    implementation 'com.google.mediapipe:solution-core:0.8.10'
+    implementation 'com.google.mediapipe:tasks-vision:0.10.14'
+//    implementation 'com.google.mediapipe:solution-hands:0.8.10'
 }
