@@ -18,13 +18,13 @@
         >
 
         <!-- 첫 번째 아이템 -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_guide_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="12dp"
-            android:background="@drawable/shape_roundborder_10">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_guide_1"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="15dp"
+        android:background="@drawable/shape_roundborder_10">
 
             <ImageView
                 android:id="@+id/btn_guide_translate_1"
@@ -54,161 +54,178 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_guide_translate_1"
-                app:srcCompat="@drawable/img_guide_road"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="-16dp"
-                android:layout_marginBottom="-8dp"/>
+                app:srcCompat="@drawable/img_map"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        &lt;!&ndash; 두 번째 아이템 &ndash;&gt;-->
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="153dp"-->
-<!--            android:layout_height="144dp"-->
-<!--            android:paddingHorizontal="20dp"-->
-<!--            android:paddingVertical="12dp">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/btn_guide_translate_2"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/ic_transform" />-->
+        <!-- 세 번째 아이템 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_guide_2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="15dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_roundborder_10">
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_guide_title_2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="도움 요청하기"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent" />-->
+            <ImageView
+                android:id="@+id/btn_guide_translate_2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_transform" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_guide_2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/img_guide_road" />-->
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_guide_translate_2"
+                android:visibility="gone" />
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <TextView
+                android:id="@+id/tv_guide_title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="도움\n요청하기"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-<!--        &lt;!&ndash; 세 번째 아이템 &ndash;&gt;-->
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="153dp"-->
-<!--            android:layout_height="144dp"-->
-<!--            android:paddingHorizontal="20dp"-->
-<!--            android:paddingVertical="12dp">-->
+            <ImageView
+                android:id="@+id/iv_guide_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/img_help" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/btn_guide_translate_3"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/ic_transform" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_guide_title_3"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="돈 거래하기"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent" />-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_guide_3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_roundborder_10">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_guide_3"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/img_guide_road" />-->
+            <ImageView
+                android:id="@+id/btn_guide_translate_3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_transform" />
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <TextView
+                android:id="@+id/tv_guide_title_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="돈\n거래하기"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-<!--        &lt;!&ndash; 네 번째 아이템 &ndash;&gt;-->
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="153dp"-->
-<!--            android:layout_height="144dp"-->
-<!--            android:paddingHorizontal="20dp"-->
-<!--            android:paddingVertical="12dp">-->
+            <ImageView
+                android:id="@+id/iv_guide_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/img_money" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/btn_guide_translate_4"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/ic_transform" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_guide_title_4"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="물건 구매하기"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent" />-->
+        <!-- 네 번째 아이템 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_guide_4"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_roundborder_10">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_guide_4"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/img_guide_road" />-->
+            <ImageView
+                android:id="@+id/btn_guide_translate_4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_transform" />
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <TextView
+                android:id="@+id/tv_guide_title_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="물건\n구매하기"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-<!--        &lt;!&ndash; 다섯 번째 아이템 &ndash;&gt;-->
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="153dp"-->
-<!--            android:layout_height="144dp"-->
-<!--            android:paddingHorizontal="20dp"-->
-<!--            android:paddingVertical="12dp">-->
+            <ImageView
+                android:id="@+id/iv_guide_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/img_shop" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/btn_guide_translate_5"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/ic_transform" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_guide_title_5"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="일상 대화 나누기"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent" />-->
+        <!-- 다섯 번째 아이템 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_guide_5"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_roundborder_10">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_guide_5"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:srcCompat="@drawable/img_guide_road" />-->
+            <ImageView
+                android:id="@+id/btn_guide_translate_5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_transform" />
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <TextView
+                android:id="@+id/tv_guide_title_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일상 대화\n나누기"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_guide_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/img_chat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </GridLayout>

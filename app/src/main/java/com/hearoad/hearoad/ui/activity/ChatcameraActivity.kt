@@ -9,7 +9,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.hearoad.hearoad.databinding.ActivityChatcameraBinding
-import com.hearoad.hearoad.ui.viewmodel.HandLandmarkerHelper
+//import com.hearoad.hearoad.ui.viewmodel.HandLandmarkerHelper
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit

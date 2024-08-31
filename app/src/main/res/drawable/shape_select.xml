@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 선택되었을 때의 상태 -->
+    <item android:drawable="@color/selected_color" android:state_selected="true"/>
+
+    <!-- 기본 상태 (선택되지 않았을 때) -->
+    <item android:drawable="@drawable/shape_roundborder_10"/>
+</selector>

@@ -16,6 +16,9 @@
     <color name="gray2">#DEDEDE</color>
     <color name="gray3">#EBEBEB</color>
     <color name="gray4">#AEAEAE</color>
+    <color name="selected_color">#6667CE67</color>
+
+
 
     <color name="mp_color_primary">#007F8B</color>
     <color name="mp_color_primary_variant">#12B5CB</color>

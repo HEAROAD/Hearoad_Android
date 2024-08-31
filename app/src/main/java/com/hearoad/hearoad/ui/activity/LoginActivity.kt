@@ -12,7 +12,6 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import com.hearoad.hearoad.MainActivity
 import com.hearoad.hearoad.data.api.ApiService
 import com.hearoad.hearoad.data.model.response.AuthResponse
-import com.hearoad.hearoad.data.network.NetworkResult
 import com.hearoad.hearoad.data.network.RetrofitClient
 import com.hearoad.hearoad.databinding.ActivityLoginBinding
 import com.hearoad.hearoad.utils.GlobalApplication
