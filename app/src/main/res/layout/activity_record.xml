@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btn_record"
+            app:layout_constraintBottom_toTopOf="@id/btn_record_retry"
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
@@ -41,13 +41,13 @@
                 android:id="@+id/tv_record_sub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="‘가다다라마바사’ 를 10번 말해보세요"
+                android:text="다시 녹음하고 싶으면 아래 버튼을 눌러주세요"
                 android:textColor="@color/gray1"
                 android:textSize="16sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_record"
+            android:id="@+id/btn_record_retry"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="다시 녹음하기"
@@ -57,10 +57,26 @@
             android:background="@drawable/shape_roundbox_10"
             android:backgroundTint="@color/sub"
             android:paddingVertical="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_record_complete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="30dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginBottom="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_record_complete"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="분석하기"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_roundbox_10"
+        android:backgroundTint="@color/main"
+        android:paddingVertical="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
