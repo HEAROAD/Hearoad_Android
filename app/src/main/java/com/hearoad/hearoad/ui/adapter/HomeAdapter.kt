@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.hearoad.hearoad.ui.fragment.ChatListFragment
 import com.hearoad.hearoad.ui.fragment.GuideFragment
+import com.hearoad.hearoad.ui.fragment.GuideFragment1
 
 class HomeAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 

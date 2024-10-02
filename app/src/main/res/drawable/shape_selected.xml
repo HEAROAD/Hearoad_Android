@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 코너의 둥근 정도 설정 -->
+    <corners android:radius="10dp" />
+
+    <!-- 내부 색상 설정 (투명도 20%인 67CE67) -->
+    <solid android:color="#3367CE67" />
+
+</shape>

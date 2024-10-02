@@ -6,23 +6,18 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.hearoad.hearoad.R
-import com.hearoad.hearoad.ui.fragment.GuideFragment1
-import com.hearoad.hearoad.ui.fragment.GuideFragment2
-import com.hearoad.hearoad.ui.fragment.GuideFragment3
+import com.hearoad.hearoad.ui.fragment.MapGuideFragment1
+import com.hearoad.hearoad.ui.fragment.MapGuideFragment2
 
-class GuideActivity : AppCompatActivity(),
-    GuideFragment1.OnGuideSelectionListener,
-    GuideFragment2.OnGuideSelectionListener,
-    GuideFragment3.OnGuideSelectionListener {
+class MapGuideActivity : AppCompatActivity(),
+    MapGuideFragment1.OnGuideSelectionListener { // MapGuideFragment2는 맵에서 선택한 후 버튼 활성화시키는거 추가
 
     private lateinit var btnNext: Button
     private lateinit var btnSkip: Button
     private var currentFragmentIndex = 0
-    private val fragments = listOf(GuideFragment1(), GuideFragment2(), GuideFragment3())
+    private val fragments = listOf(MapGuideFragment1(), MapGuideFragment2())
 
     private var selectedGuide1: String? = null
-    private var selectedGuide2: String? = null
-    private var selectedGuide3: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,16 +34,16 @@ class GuideActivity : AppCompatActivity(),
                 currentFragmentIndex++
                 loadFragment(fragments[currentFragmentIndex])
             } else {
-                // 모든 선택 완료 후 ChatRoomActivity로 이동
-                navigateToChatRoomActivity()
+                // 모든 선택 완료 후 다음 액티비티로 이동
+                navigateToNextActivity()
             }
         }
 
         btnSkip.setOnClickListener {
-            finish() // 예시로 액티비티 종료
+            finish() // 액티비티 종료
         }
 
-        // 초기에는 버튼 비활성화
+        // 초기에는 버튼 비활성화 (첫 번째 프래그먼트에선 선택할 때까지 비활성화)
         btnNext.isEnabled = false
     }
 
@@ -57,41 +52,37 @@ class GuideActivity : AppCompatActivity(),
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .runOnCommit {
-                // 프래그먼트 로드 완료 후 선택된 가이드 확인
+                // 첫 번째 프래그먼트에서는 선택 여부에 따라 버튼 활성화
+                // 두 번째 프래그먼트는 선택과 상관없이 버튼 활성화
                 btnNext.isEnabled = isGuideSelected()
             }
             .commit()
     }
 
-    // 가이드 선택 시 호출되는 메소드
+    // 가이드 선택 시 호출되는 메소드 (첫 번째 프래그먼트에서만 사용)
     override fun onGuideSelected(guide: String?, fragmentTag: String) {
-        when (fragmentTag) {
-            "GuideFragment1" -> selectedGuide1 = guide
-            "GuideFragment2" -> selectedGuide2 = guide
-            "GuideFragment3" -> selectedGuide3 = guide
+        if (fragmentTag == "MapGuideFragment1") {
+            selectedGuide1 = guide
         }
 
-        // 선택 상태에 따라 버튼 활성화/비활성화
+        // 첫 번째 프래그먼트 선택 시에만 버튼 활성화
         btnNext.isEnabled = isGuideSelected()
     }
 
-
     // 선택된 가이드가 있는지 확인하는 메소드
     private fun isGuideSelected(): Boolean {
+        // 첫 번째 프래그먼트에서는 선택 여부 확인, 두 번째 프래그먼트는 항상 true
         return when (currentFragmentIndex) {
             0 -> selectedGuide1 != null
-            1 -> selectedGuide2 != null
-            2 -> selectedGuide3 != null
+            1 -> true
             else -> false
         }
     }
 
-    // 모든 선택 완료 후 ChatRoomActivity로 이동하는 함수
-    private fun navigateToChatRoomActivity() {
+    // 모든 선택 완료 후 다음 액티비티로 이동하는 함수
+    private fun navigateToNextActivity() {
         val intent = Intent(this, ChatroomActivity::class.java).apply {
             putExtra("selected_guide_1", selectedGuide1)
-            putExtra("selected_guide_2", selectedGuide2)
-            putExtra("selected_guide_3", selectedGuide3)
         }
         startActivity(intent)
     }

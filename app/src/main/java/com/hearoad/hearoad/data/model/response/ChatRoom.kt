@@ -10,6 +10,6 @@ data class ChatRoom(
 data class ChatMessage(
     val type: String,
     val message: String,
-    val ksl: String?,
+    val ksl: String? = null,
     val timestamp: String?
 )

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emergancyGuide01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- 툴바 -->
+        <com.hearoad.hearoad.ui.CustomToolbar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 이미지뷰 -->
+        <ImageView
+            android:id="@+id/img_danger_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="img_danger_02"
+            android:src="@drawable/img_danger_01"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 텍스트뷰 -->
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="어떻게 거래하실 건가요?"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_danger_01" />
+
+        <!-- 프래그먼트 컨테이너 -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_question"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 그리드 레이아웃 -->
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- 첫 번째 아이템 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_guide_1"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="15dp"
+                android:background="@drawable/shape_select">
+
+                <ImageView
+                    android:id="@+id/btn_guide_translate_1"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_transform"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginStart="88dp"/>
+
+                <TextView
+                    android:id="@+id/tv_guide_title_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="현금"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_guide_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/img_cash"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 두 번째 아이템 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_guide_2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="15dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_select">
+
+                <ImageView
+                    android:id="@+id/btn_guide_translate_2"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_transform" />
+
+                <TextView
+                    android:id="@+id/tv_guide_title_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="카드"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_guide_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/img_card" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

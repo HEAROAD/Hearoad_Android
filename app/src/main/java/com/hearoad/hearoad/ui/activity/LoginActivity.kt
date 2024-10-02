@@ -1,23 +1,10 @@
 package com.hearoad.hearoad.ui.activity
 
-import android.content.ContentValues.TAG
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.hearoad.hearoad.MainActivity
-import com.hearoad.hearoad.data.api.ApiService
-import com.hearoad.hearoad.data.model.response.AuthResponse
-import com.hearoad.hearoad.data.network.RetrofitClient
 import com.hearoad.hearoad.databinding.ActivityLoginBinding
-import com.hearoad.hearoad.utils.GlobalApplication
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -30,47 +17,18 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLoginKakao.setOnClickListener {
-            //로그인 버튼
-            kakaoLogin()
+            // 로그인 버튼 클릭 시 바로 MainActivity로 이동
+            navigateToMain()
         }
-    }
-
-    private fun kakaoLogin() {
-        val apiService: ApiService = RetrofitClient.create(ApiService::class.java)
-        val call = apiService.getKakaoLogin()
-        call.enqueue(object : Callback<AuthResponse> {
-            override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
-                if (response.isSuccessful) {
-                    val loginResponse = response.body()
-                    if (loginResponse != null) {
-                        handleLoginSuccess(loginResponse.access_token)
-                    }
-                } else {
-                    Log.e("login", "Error: ${response.code()} - ${response.message()}")
-                }
-            }
-
-            override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                Log.e("login", "Failure: ${t.message}", t)
-            }
-        })
-    }
-    private fun handleLoginSuccess(accessToken: String) {
-        // 로그인 성공 시의 처리 로직
-        saveAuthToken(accessToken)
-        navigateToMain()
-    }
-
-    private fun saveAuthToken(authToken: String) {
-        GlobalApplication.spf.accessToken = authToken
     }
 
     private fun navigateToMain() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish()
+        finish() // 현재 로그인 액티비티를 종료하여 뒤로 가기 시 다시 나타나지 않도록 함
     }
 }
+
 
 //    private fun kakaoLogin() {
 //        call.enqueue(object : Callback<KakaoLoginResponse> {

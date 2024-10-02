@@ -1,11 +1,11 @@
 package com.hearoad.hearoad.ui.adapter
 
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.hearoad.hearoad.data.model.response.ChatMessage
 import com.hearoad.hearoad.databinding.ItemMessageBinding
 import com.hearoad.hearoad.databinding.ItemUsermessageBinding
@@ -78,7 +78,6 @@ class ChatroomAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 binding.ivUsermessageHandsign.visibility = View.GONE
             }
         }
-
     }
 
     class PartnerMessageViewHolder(private val binding: ItemMessageBinding) :
@@ -107,7 +106,6 @@ class ChatroomAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
         }
     }
-
 
     companion object {
         const val VIEW_TYPE_USER = 1

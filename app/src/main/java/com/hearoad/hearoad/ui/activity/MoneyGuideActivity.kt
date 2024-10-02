@@ -6,23 +6,20 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.hearoad.hearoad.R
-import com.hearoad.hearoad.ui.fragment.GuideFragment1
-import com.hearoad.hearoad.ui.fragment.GuideFragment2
-import com.hearoad.hearoad.ui.fragment.GuideFragment3
+import com.hearoad.hearoad.ui.fragment.MoneyGuideFragment1
+import com.hearoad.hearoad.ui.fragment.MoneyGuideFragment2
 
-class GuideActivity : AppCompatActivity(),
-    GuideFragment1.OnGuideSelectionListener,
-    GuideFragment2.OnGuideSelectionListener,
-    GuideFragment3.OnGuideSelectionListener {
+class MoneyGuideActivity : AppCompatActivity(),
+    MoneyGuideFragment1.OnGuideSelectionListener,
+    MoneyGuideFragment2.OnGuideSelectionListener {
 
     private lateinit var btnNext: Button
     private lateinit var btnSkip: Button
     private var currentFragmentIndex = 0
-    private val fragments = listOf(GuideFragment1(), GuideFragment2(), GuideFragment3())
+    private val fragments = listOf(MoneyGuideFragment1(),MoneyGuideFragment2() )
 
     private var selectedGuide1: String? = null
     private var selectedGuide2: String? = null
-    private var selectedGuide3: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,9 +63,8 @@ class GuideActivity : AppCompatActivity(),
     // 가이드 선택 시 호출되는 메소드
     override fun onGuideSelected(guide: String?, fragmentTag: String) {
         when (fragmentTag) {
-            "GuideFragment1" -> selectedGuide1 = guide
-            "GuideFragment2" -> selectedGuide2 = guide
-            "GuideFragment3" -> selectedGuide3 = guide
+            "MoneyGuideFragment1" -> selectedGuide1 = guide
+            "MoneyGuideFragment2" -> selectedGuide2 = guide
         }
 
         // 선택 상태에 따라 버튼 활성화/비활성화
@@ -81,7 +77,7 @@ class GuideActivity : AppCompatActivity(),
         return when (currentFragmentIndex) {
             0 -> selectedGuide1 != null
             1 -> selectedGuide2 != null
-            2 -> selectedGuide3 != null
+
             else -> false
         }
     }
@@ -91,7 +87,7 @@ class GuideActivity : AppCompatActivity(),
         val intent = Intent(this, ChatroomActivity::class.java).apply {
             putExtra("selected_guide_1", selectedGuide1)
             putExtra("selected_guide_2", selectedGuide2)
-            putExtra("selected_guide_3", selectedGuide3)
+
         }
         startActivity(intent)
     }

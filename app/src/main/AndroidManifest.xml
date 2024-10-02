@@ -35,23 +35,23 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-
-        <activity android:name=".ui.activity.GuideActivity"/>
-        <activity android:name=".ui.activity.GuideActivity2"/>
-        <activity android:name=".ui.activity.GuideActivity3"/>
-
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".ui.activity.GuideActivity"/>
+        <activity android:name=".ui.activity.ShoppingGuideActivity"/>
+        <activity android:name=".ui.activity.MoneyGuideActivity"/>
+        <activity android:name=".ui.activity.MapGuideActivity"/>
     </application>
 
 </manifest>

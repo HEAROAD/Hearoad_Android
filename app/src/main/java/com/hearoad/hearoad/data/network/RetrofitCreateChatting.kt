@@ -1,11 +1,9 @@
 package com.hearoad.hearoad.data.network
 
 import android.content.Context
-import android.widget.Toast
 import com.hearoad.hearoad.data.api.ChatApiService
 import com.hearoad.hearoad.data.model.response.CreateChatRoomResponse
 import com.hearoad.hearoad.data.model.response.SendMessageResponse
-import com.hearoad.hearoad.ui.activity.GuideActivity3
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

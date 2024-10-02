@@ -1,28 +1,29 @@
 package com.hearoad.hearoad.ui.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.hearoad.hearoad.R
-import com.hearoad.hearoad.ui.fragment.GuideFragment1
-import com.hearoad.hearoad.ui.fragment.GuideFragment2
-import com.hearoad.hearoad.ui.fragment.GuideFragment3
+import com.hearoad.hearoad.ui.fragment.ShoppingGuideFragment1
+import com.hearoad.hearoad.ui.fragment.ShoppingGuideFragment2
+import com.hearoad.hearoad.ui.fragment.ShoppingGuideFragment3
 
-class GuideActivity : AppCompatActivity(),
-    GuideFragment1.OnGuideSelectionListener,
-    GuideFragment2.OnGuideSelectionListener,
-    GuideFragment3.OnGuideSelectionListener {
+class ShoppingGuideActivity : AppCompatActivity(),
+    ShoppingGuideFragment1.OnGuideSelectionListener,
+    ShoppingGuideFragment2.OnGuideSelectionListener,
+    ShoppingGuideFragment3.OnGuideSelectionListener {
 
     private lateinit var btnNext: Button
     private lateinit var btnSkip: Button
     private var currentFragmentIndex = 0
-    private val fragments = listOf(GuideFragment1(), GuideFragment2(), GuideFragment3())
+    private val fragments = listOf(ShoppingGuideFragment1(), ShoppingGuideFragment2(), ShoppingGuideFragment3())
 
     private var selectedGuide1: String? = null
-    private var selectedGuide2: String? = null
-    private var selectedGuide3: String? = null
+    private var selectedGuide2: Uri? = null // Uri로 변경
+    private var selectedGuide3: List<String>? = null // List<String>으로 변경
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,25 +64,33 @@ class GuideActivity : AppCompatActivity(),
             .commit()
     }
 
-    // 가이드 선택 시 호출되는 메소드
-    override fun onGuideSelected(guide: String?, fragmentTag: String) {
+    // ShoppingGuideFragment1 및 ShoppingGuideFragment2에서 단일 선택 처리
+    override fun onGuideSelected(guide: Any?, fragmentTag: String) {
         when (fragmentTag) {
-            "GuideFragment1" -> selectedGuide1 = guide
-            "GuideFragment2" -> selectedGuide2 = guide
-            "GuideFragment3" -> selectedGuide3 = guide
+            "ShoppingGuideFragment1" -> selectedGuide1 = guide as? String
+            "ShoppingGuideFragment2" -> selectedGuide2 = guide as? Uri // 이미지 URI로 받음
         }
 
         // 선택 상태에 따라 버튼 활성화/비활성화
         btnNext.isEnabled = isGuideSelected()
     }
 
+    // ShoppingGuideFragment3에서 여러 선택 처리
+    override fun onGuideSelected(guides: List<String>, fragmentTag: String) {
+        if (fragmentTag == "ShoppingGuideFragment3") {
+            selectedGuide3 = guides
+        }
+
+        // 선택 상태에 따라 버튼 활성화/비활성화
+        btnNext.isEnabled = isGuideSelected()
+    }
 
     // 선택된 가이드가 있는지 확인하는 메소드
     private fun isGuideSelected(): Boolean {
         return when (currentFragmentIndex) {
             0 -> selectedGuide1 != null
             1 -> selectedGuide2 != null
-            2 -> selectedGuide3 != null
+            2 -> selectedGuide3 != null && selectedGuide3!!.isNotEmpty()
             else -> false
         }
     }
@@ -90,8 +99,8 @@ class GuideActivity : AppCompatActivity(),
     private fun navigateToChatRoomActivity() {
         val intent = Intent(this, ChatroomActivity::class.java).apply {
             putExtra("selected_guide_1", selectedGuide1)
-            putExtra("selected_guide_2", selectedGuide2)
-            putExtra("selected_guide_3", selectedGuide3)
+            putExtra("selected_guide_2", selectedGuide2.toString()) // Uri를 String으로 변환해서 전달
+            putExtra("selected_guide_3", selectedGuide3?.joinToString(", ")) // List<String>을 결합하여 전달
         }
         startActivity(intent)
     }

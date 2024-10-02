@@ -1,5 +1,6 @@
 package com.hearoad.hearoad.ui.fragment
 
+
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,10 @@ import android.widget.ImageView
 import com.hearoad.hearoad.R
 import com.hearoad.hearoad.databinding.FragmentGuideBinding
 import com.hearoad.hearoad.ui.activity.GuideActivity
+import com.hearoad.hearoad.ui.activity.MapGuideActivity
+import com.hearoad.hearoad.ui.activity.MoneyGuideActivity
+import com.hearoad.hearoad.ui.activity.ShoppingGuideActivity
+
 
 class GuideFragment : Fragment() {
 
@@ -42,24 +47,39 @@ class GuideFragment : Fragment() {
 
         // 기존의 가이드 클릭 이벤트 처리
         binding.clGuide1.setOnClickListener {
-            startGuideActivity()
+            startMapGuideActivity()
         }
         binding.clGuide2.setOnClickListener {
             startGuideActivity()
         }
         binding.clGuide3.setOnClickListener {
-            startGuideActivity()
+            startMoneyGuideActivity()
         }
         binding.clGuide4.setOnClickListener {
-            startGuideActivity()
+            startShoppingGuideActivity()
         }
         binding.clGuide5.setOnClickListener {
             startGuideActivity()
         }
     }
 
+    private fun startMapGuideActivity() {
+        val intent = Intent(requireContext(), MapGuideActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun startGuideActivity() {
         val intent = Intent(requireContext(), GuideActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startShoppingGuideActivity() {
+        val intent = Intent(requireContext(),ShoppingGuideActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startMoneyGuideActivity() {
+        val intent = Intent(requireContext(), MoneyGuideActivity::class.java)
         startActivity(intent)
     }
 
