@@ -150,7 +150,7 @@
                 android:layout_height="140dp"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="15dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/shape_select">
 
@@ -232,7 +232,7 @@
                 android:layout_height="140dp"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="15dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/shape_select">
 
