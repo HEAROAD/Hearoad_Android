@@ -35,12 +35,17 @@ class MapGuideActivity : AppCompatActivity(),
                 loadFragment(fragments[currentFragmentIndex])
             } else {
                 // 모든 선택 완료 후 다음 액티비티로 이동
-                navigateToNextActivity()
+                navigateToChatRoomActivity()
             }
         }
 
         btnSkip.setOnClickListener {
-            finish() // 액티비티 종료
+            if (currentFragmentIndex < fragments.size - 1) {
+                currentFragmentIndex++  // 프래그먼트 인덱스를 증가시킴
+                loadFragment(fragments[currentFragmentIndex])  // 다음 프래그먼트 로드
+            } else {
+                navigateToChatRoomActivity()
+            }
         }
 
         // 초기에는 버튼 비활성화 (첫 번째 프래그먼트에선 선택할 때까지 비활성화)
@@ -80,9 +85,10 @@ class MapGuideActivity : AppCompatActivity(),
     }
 
     // 모든 선택 완료 후 다음 액티비티로 이동하는 함수
-    private fun navigateToNextActivity() {
+    private fun navigateToChatRoomActivity() {
         val intent = Intent(this, ChatroomActivity::class.java).apply {
             putExtra("selected_guide_1", selectedGuide1)
+//            putExtra("selected_guide_2", selectedGuide2)
         }
         startActivity(intent)
     }

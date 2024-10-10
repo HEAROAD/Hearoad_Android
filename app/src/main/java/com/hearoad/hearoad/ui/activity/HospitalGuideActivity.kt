@@ -1,29 +1,28 @@
 package com.hearoad.hearoad.ui.activity
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.hearoad.hearoad.R
-import com.hearoad.hearoad.ui.fragment.ShoppingGuideFragment1
-import com.hearoad.hearoad.ui.fragment.ShoppingGuideFragment2
-import com.hearoad.hearoad.ui.fragment.ShoppingGuideFragment3
+import com.hearoad.hearoad.ui.fragment.HospitalGuideFragment1
+import com.hearoad.hearoad.ui.fragment.HospitalGuideFragment2
+import com.hearoad.hearoad.ui.fragment.HospitalGuideFragment3
 
-class ShoppingGuideActivity : AppCompatActivity(),
-    ShoppingGuideFragment1.OnGuideSelectionListener,
-    ShoppingGuideFragment2.OnGuideSelectionListener,
-    ShoppingGuideFragment3.OnGuideSelectionListener {
+class HospitalGuideActivity : AppCompatActivity(),
+    HospitalGuideFragment1.OnGuideSelectionListener,
+    HospitalGuideFragment2.OnGuideSelectionListener,
+    HospitalGuideFragment3.OnGuideSelectionListener {
 
     private lateinit var btnNext: Button
     private lateinit var btnSkip: Button
     private var currentFragmentIndex = 0
-    private val fragments = listOf(ShoppingGuideFragment1(), ShoppingGuideFragment2(), ShoppingGuideFragment3())
+    private val fragments = listOf(HospitalGuideFragment1(), HospitalGuideFragment2(), HospitalGuideFragment3())
 
     private var selectedGuide1: String? = null
-    private var selectedGuide2: Uri? = null // Uri로 변경
-    private var selectedGuide3: List<String>? = null // List<String>으로 변경
+    private var selectedGuide2: String? = null
+    private var selectedGuide3: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +44,11 @@ class ShoppingGuideActivity : AppCompatActivity(),
             }
         }
 
-        btnNext.setOnClickListener {
+        btnSkip.setOnClickListener {
             if (currentFragmentIndex < fragments.size - 1) {
-                currentFragmentIndex++
-                loadFragment(fragments[currentFragmentIndex])
+                currentFragmentIndex++  // 프래그먼트 인덱스를 증가시킴
+                loadFragment(fragments[currentFragmentIndex])  // 다음 프래그먼트 로드
             } else {
-                // 모든 선택 완료 후 다음 액티비티로 이동
                 navigateToChatRoomActivity()
             }
         }
@@ -70,33 +68,25 @@ class ShoppingGuideActivity : AppCompatActivity(),
             .commit()
     }
 
-    // ShoppingGuideFragment1 및 ShoppingGuideFragment2에서 단일 선택 처리
-    override fun onGuideSelected(guide: Any?, fragmentTag: String) {
+    // 가이드 선택 시 호출되는 메소드
+    override fun onGuideSelected(guide: String?, fragmentTag: String) {
         when (fragmentTag) {
-            "ShoppingGuideFragment1" -> selectedGuide1 = guide as? String
-            "ShoppingGuideFragment2" -> selectedGuide2 = guide as? Uri // 이미지 URI로 받음
+            "HospitalGuideFragment1" -> selectedGuide1 = guide
+            "HospitalGuideFragment2" -> selectedGuide2 = guide
+            "HospitalGuideFragment3" -> selectedGuide3 = guide
         }
 
         // 선택 상태에 따라 버튼 활성화/비활성화
         btnNext.isEnabled = isGuideSelected()
     }
 
-    // ShoppingGuideFragment3에서 여러 선택 처리
-    override fun onGuideSelected(guides: List<String>, fragmentTag: String) {
-        if (fragmentTag == "ShoppingGuideFragment3") {
-            selectedGuide3 = guides
-        }
-
-        // 선택 상태에 따라 버튼 활성화/비활성화
-        btnNext.isEnabled = isGuideSelected()
-    }
 
     // 선택된 가이드가 있는지 확인하는 메소드
     private fun isGuideSelected(): Boolean {
         return when (currentFragmentIndex) {
             0 -> selectedGuide1 != null
             1 -> selectedGuide2 != null
-            2 -> selectedGuide3 != null && selectedGuide3!!.isNotEmpty()
+            2 -> selectedGuide3 != null
             else -> false
         }
     }
@@ -105,8 +95,8 @@ class ShoppingGuideActivity : AppCompatActivity(),
     private fun navigateToChatRoomActivity() {
         val intent = Intent(this, ChatroomActivity::class.java).apply {
             putExtra("selected_guide_1", selectedGuide1)
-            putExtra("selected_guide_2", selectedGuide2.toString()) // Uri를 String으로 변환해서 전달
-            putExtra("selected_guide_3", selectedGuide3?.joinToString(", ")) // List<String>을 결합하여 전달
+            putExtra("selected_guide_2", selectedGuide2)
+            putExtra("selected_guide_3", selectedGuide3)
         }
         startActivity(intent)
     }

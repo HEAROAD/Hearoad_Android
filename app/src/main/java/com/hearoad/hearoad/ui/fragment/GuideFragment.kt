@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.hearoad.hearoad.R
 import com.hearoad.hearoad.databinding.FragmentGuideBinding
+import com.hearoad.hearoad.ui.activity.ChatroomActivity
 import com.hearoad.hearoad.ui.activity.GuideActivity
+import com.hearoad.hearoad.ui.activity.HospitalGuideActivity
 import com.hearoad.hearoad.ui.activity.MapGuideActivity
 import com.hearoad.hearoad.ui.activity.MoneyGuideActivity
 import com.hearoad.hearoad.ui.activity.ShoppingGuideActivity
@@ -59,7 +61,10 @@ class GuideFragment : Fragment() {
             startShoppingGuideActivity()
         }
         binding.clGuide5.setOnClickListener {
-            startGuideActivity()
+            startHospitalGuideActivity()
+        }
+        binding.clGuide6.setOnClickListener {
+            startChattingActivity()
         }
     }
 
@@ -80,6 +85,16 @@ class GuideFragment : Fragment() {
 
     private fun startMoneyGuideActivity() {
         val intent = Intent(requireContext(), MoneyGuideActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startHospitalGuideActivity() {
+        val intent = Intent(requireContext(), HospitalGuideActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startChattingActivity() {
+        val intent = Intent(requireContext(), ChatroomActivity::class.java)
         startActivity(intent)
     }
 

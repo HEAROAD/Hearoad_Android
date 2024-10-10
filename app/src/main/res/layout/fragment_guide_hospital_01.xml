@@ -150,7 +150,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/img_yes"/>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- 두 번째 아이템 -->
@@ -189,7 +188,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/img_no" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
