@@ -12,37 +12,70 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
+        <!-- Custom Toolbar -->
         <com.hearoad.hearoad.ui.CustomToolbar
+            android:id="@+id/customToolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/img_danger_01"
-            android:layout_width="wrap_content"
+        <!-- 수평 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="img_danger_02"
-            android:src="@drawable/img_guide_map_01"
-            android:layout_marginTop="60dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/customToolbar"
+            android:layout_marginTop="16dp">
 
-        <!-- 텍스트 뷰 -->
+            <!-- 왼쪽의 둥근 모서리 텍스트 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginStart="8dp"
+                android:text="교통수단 묻기"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:background="@drawable/rounded_background_blue"
+                />
+
+            <!-- 가운데 가로선 -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@color/main" />
+
+            <!-- 오른쪽 원형 숫자 뱃지 -->
+            <TextView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="2"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:background="@drawable/circle_background_green"
+                android:layout_marginEnd="8dp"/>
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/tv_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="18dp"
             android:text="무엇을 타고 가시나요?"
             android:textColor="@android:color/black"
+            android:textSize="24dp"
             android:textStyle="bold"
-            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_danger_01" />
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
 
         <GridLayout
             android:id="@+id/gridLayout"

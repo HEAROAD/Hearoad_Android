@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.hearoad.hearoad.R
 
-class GuideFragment3 : Fragment() {
+class HospitalGuideFragment2 : Fragment() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private var selectedGuideLayout: ConstraintLayout? = null  // 선택된 레이아웃
@@ -36,7 +36,7 @@ class GuideFragment3 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_guide_emergancy_03, container, false)
+        val view = inflater.inflate(R.layout.fragment_guide_hospital_02, container, false)
 
         sharedPreferences = requireContext().getSharedPreferences("guide_prefs", Context.MODE_PRIVATE)
 
@@ -82,11 +82,11 @@ class GuideFragment3 : Fragment() {
     private fun handleGuideSelection(selectedLayout: ConstraintLayout, guideId: String) {
         // 선택된 guideId에 따라 하드코딩된 텍스트 값 설정
         val guideValue = when (guideId) {
-            "guide_1" -> "다쳤어요"
-            "guide_2" -> "사라졌어요"
-            "guide_3" -> "아파요"
-            "guide_4" -> "제 3자에 의해 위협을 당했어요"
-            "guide_5" -> "모르겠어요"
+            "guide_1" -> "머리"
+            "guide_2" -> "목"
+            "guide_3" -> "가슴"
+            "guide_4" -> "배"
+            "guide_5" -> "다리"
             "guide_6" -> "직접 입력"
             else -> ""
         }
@@ -97,7 +97,7 @@ class GuideFragment3 : Fragment() {
             selectedGuideLayout = null
             selectedGuide = null
             clearSelectedGuide()  // SharedPreferences에서 선택 해제
-            callback?.onGuideSelected(null, "GuideFragment3")  // 선택 해제 상태 전달
+            callback?.onGuideSelected(null, "HospitalGuideFragment2")  // 선택 해제 상태 전달
         } else {
             // 이전 선택 항목 해제
             selectedGuideLayout?.setBackgroundResource(R.drawable.shape_roundborder_10)  // 기본 배경으로 복구
@@ -111,20 +111,20 @@ class GuideFragment3 : Fragment() {
             saveSelectedGuide(guideValue)
 
             // 선택된 value 값을 GuideActivity에 전달
-            callback?.onGuideSelected(guideValue, "GuideFragment3")
+            callback?.onGuideSelected(guideValue, "HospitalGuideFragment2")
         }
     }
 
 
     private fun saveSelectedGuide(guide: String) {
         val editor = sharedPreferences.edit()
-        editor.putString("selected_guide_3", guide)  // 'selected_guide_2' key로 저장
+        editor.putString("selected_guide_2", guide)
         editor.apply()
     }
 
     private fun clearSelectedGuide() {
         val editor = sharedPreferences.edit()
-        editor.remove("selected_guide_3")  // SharedPreferences에서 선택 해제
+        editor.remove("selected_guide_2")  // SharedPreferences에서 선택 해제
         editor.apply()
     }
 
@@ -142,8 +142,9 @@ class GuideFragment3 : Fragment() {
         guide3Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
         guide4Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
         guide5Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
+        guide6Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
 
-        val selectedGuideKey = sharedPreferences.getString("selected_guide_3", null)
+        val selectedGuideKey = sharedPreferences.getString("selected_guide_2", null)
 
         // 선택된 가이드가 있으면 복원
         when (selectedGuideKey) {

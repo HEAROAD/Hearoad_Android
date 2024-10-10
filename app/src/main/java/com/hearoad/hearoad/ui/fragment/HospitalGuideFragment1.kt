@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.hearoad.hearoad.R
 
-class GuideFragment3 : Fragment() {
+class HospitalGuideFragment1 : Fragment() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private var selectedGuideLayout: ConstraintLayout? = null  // 선택된 레이아웃
@@ -36,20 +36,16 @@ class GuideFragment3 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_guide_emergancy_03, container, false)
+        val view = inflater.inflate(R.layout.fragment_guide_hospital_01, container, false)
 
         sharedPreferences = requireContext().getSharedPreferences("guide_prefs", Context.MODE_PRIVATE)
 
         // UI 요소 초기화
         val guide1Layout: ConstraintLayout = view.findViewById(R.id.cl_guide_1)
         val guide2Layout: ConstraintLayout = view.findViewById(R.id.cl_guide_2)
-        val guide3Layout: ConstraintLayout = view.findViewById(R.id.cl_guide_3)
-        val guide4Layout: ConstraintLayout = view.findViewById(R.id.cl_guide_4)
-        val guide5Layout: ConstraintLayout = view.findViewById(R.id.cl_guide_5)
-        val guide6Layout: ConstraintLayout = view.findViewById(R.id.cl_guide_6)
 
         // 이전에 저장된 선택 상태 불러오기
-        loadSelectedGuide(guide1Layout, guide2Layout, guide3Layout, guide4Layout, guide5Layout,guide6Layout)
+        loadSelectedGuide(guide1Layout, guide2Layout)
 
         // 클릭 이벤트 공통 처리
         guide1Layout.setOnClickListener {
@@ -60,34 +56,14 @@ class GuideFragment3 : Fragment() {
             handleGuideSelection(guide2Layout, "guide_2")
         }
 
-        guide3Layout.setOnClickListener {
-            handleGuideSelection(guide3Layout, "guide_3")
-        }
-
-        guide4Layout.setOnClickListener {
-            handleGuideSelection(guide4Layout, "guide_4")
-        }
-
-        guide5Layout.setOnClickListener {
-            handleGuideSelection(guide5Layout, "guide_5")
-        }
-
-        guide6Layout.setOnClickListener {
-            handleGuideSelection(guide6Layout, "guide_6")
-        }
-
         return view
     }
 
     private fun handleGuideSelection(selectedLayout: ConstraintLayout, guideId: String) {
-        // 선택된 guideId에 따라 하드코딩된 텍스트 값 설정
+
         val guideValue = when (guideId) {
-            "guide_1" -> "다쳤어요"
-            "guide_2" -> "사라졌어요"
-            "guide_3" -> "아파요"
-            "guide_4" -> "제 3자에 의해 위협을 당했어요"
-            "guide_5" -> "모르겠어요"
-            "guide_6" -> "직접 입력"
+            "guide_1" -> "응급상황 입니다"
+            "guide_2" -> "응급상황은 아닙니다"
             else -> ""
         }
 
@@ -97,7 +73,7 @@ class GuideFragment3 : Fragment() {
             selectedGuideLayout = null
             selectedGuide = null
             clearSelectedGuide()  // SharedPreferences에서 선택 해제
-            callback?.onGuideSelected(null, "GuideFragment3")  // 선택 해제 상태 전달
+            callback?.onGuideSelected(null, "HospitalGuideFragment1")  // 선택 해제 상태 전달
         } else {
             // 이전 선택 항목 해제
             selectedGuideLayout?.setBackgroundResource(R.drawable.shape_roundborder_10)  // 기본 배경으로 복구
@@ -111,39 +87,30 @@ class GuideFragment3 : Fragment() {
             saveSelectedGuide(guideValue)
 
             // 선택된 value 값을 GuideActivity에 전달
-            callback?.onGuideSelected(guideValue, "GuideFragment3")
+            callback?.onGuideSelected(guideValue, "HospitalGuideFragment1")
         }
     }
 
 
+
     private fun saveSelectedGuide(guide: String) {
         val editor = sharedPreferences.edit()
-        editor.putString("selected_guide_3", guide)  // 'selected_guide_2' key로 저장
+        editor.putString("selected_guide_1", guide)  // 'selected_guide_1' key로 저장
         editor.apply()
     }
 
     private fun clearSelectedGuide() {
         val editor = sharedPreferences.edit()
-        editor.remove("selected_guide_3")  // SharedPreferences에서 선택 해제
+        editor.remove("selected_guide_1")  // SharedPreferences에서 선택 해제
         editor.apply()
     }
 
-    private fun loadSelectedGuide(
-        guide1Layout: ConstraintLayout,
-        guide2Layout: ConstraintLayout,
-        guide3Layout: ConstraintLayout,
-        guide4Layout: ConstraintLayout,
-        guide5Layout: ConstraintLayout,
-        guide6Layout: ConstraintLayout
-    ) {
+    private fun loadSelectedGuide(guide1Layout: ConstraintLayout, guide2Layout: ConstraintLayout) {
         // 모든 가이드 항목을 초기화 (기본 상태로 복구)
         guide1Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
         guide2Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
-        guide3Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
-        guide4Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
-        guide5Layout.setBackgroundResource(R.drawable.shape_roundborder_10)
 
-        val selectedGuideKey = sharedPreferences.getString("selected_guide_3", null)
+        val selectedGuideKey = sharedPreferences.getString("selected_guide_1", null)
 
         // 선택된 가이드가 있으면 복원
         when (selectedGuideKey) {
@@ -154,22 +121,6 @@ class GuideFragment3 : Fragment() {
             "guide_2" -> {
                 //guide2Layout.setBackgroundResource(R.drawable.shape_selected)
                 selectedGuideLayout = guide2Layout
-            }
-            "guide_3" -> {
-                //guide3Layout.setBackgroundResource(R.drawable.shape_selected)
-                selectedGuideLayout = guide3Layout
-            }
-            "guide_4" -> {
-                //guide4Layout.setBackgroundResource(R.drawable.shape_selected)
-                selectedGuideLayout = guide4Layout
-            }
-            "guide_5" -> {
-                //guide5Layout.setBackgroundResource(R.drawable.shape_selected)
-                selectedGuideLayout = guide5Layout
-            }
-            "guide_6" -> {
-                //guide6Layout.setBackgroundResource(R.drawable.shape_selected)
-                selectedGuideLayout = guide6Layout
             }
             else -> {
                 // 선택된 가이드가 없을 때 초기화

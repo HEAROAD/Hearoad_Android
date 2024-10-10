@@ -48,33 +48,31 @@
                 android:layout_weight="0.5"
                 android:background="#59A1EB" />
 
-            <TextView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="2"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:gravity="center"
-
-                android:background="@drawable/circle_background_blue"
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_weight="0.5"
-                android:background="#59A1EB"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_background_blue"
                 android:padding="8dp"
-                android:text="위험 종류 묻기"
+                android:text="아픈 부분 묻기"
                 android:textColor="@android:color/white"
-                android:layout_marginEnd="8dp"
                 android:textSize="12dp" />
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@color/main" />
+
+            <TextView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="3"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:background="@drawable/circle_background_green"
+                android:layout_marginEnd="8dp"/>
         </LinearLayout>
 
         <!-- 텍스트 뷰 -->
@@ -83,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="어떤 위험에 처했나요?"
+            android:text="어디가 아프신가요?"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="24sp"
@@ -129,7 +127,7 @@
                     android:id="@+id/tv_guide_title_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="다쳤어요"
+                    android:text="머리"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -142,7 +140,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/img_hurt" />
+                    app:srcCompat="@drawable/img_head" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- 두 번째 아이템 -->
@@ -169,7 +167,7 @@
                     android:id="@+id/tv_guide_title_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아파요"
+                    android:text="목"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -182,7 +180,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/img_sick" />
+                    app:srcCompat="@drawable/img_neck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- 세 번째 아이템 -->
@@ -211,7 +209,7 @@
                     android:id="@+id/tv_guide_title_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="사라졌어요"
+                    android:text="가슴"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -224,7 +222,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/img_disappear" />
+                    app:srcCompat="@drawable/img_heart" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- 네 번째 아이템 -->
@@ -251,7 +249,7 @@
                     android:id="@+id/tv_guide_title_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="제 3자에 의해\n위협을\n당했어요."
+                    android:text="배"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -264,7 +262,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/img_dangerous" />
+                    app:srcCompat="@drawable/img_stomach" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- 다섯 번째 아이템 -->
@@ -293,7 +291,7 @@
                     android:id="@+id/tv_guide_title_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="모르겠어요"
+                    android:text="다리"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -306,7 +304,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/img_people" />
+                    app:srcCompat="@drawable/img_leg" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- 네 번째 아이템 -->

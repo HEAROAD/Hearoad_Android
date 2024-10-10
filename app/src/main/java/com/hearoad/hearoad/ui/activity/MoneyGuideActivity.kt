@@ -42,7 +42,12 @@ class MoneyGuideActivity : AppCompatActivity(),
         }
 
         btnSkip.setOnClickListener {
-            finish() // 예시로 액티비티 종료
+            if (currentFragmentIndex < fragments.size - 1) {
+                currentFragmentIndex++  // 프래그먼트 인덱스를 증가시킴
+                loadFragment(fragments[currentFragmentIndex])  // 다음 프래그먼트 로드
+            } else {
+                navigateToChatRoomActivity()
+            }
         }
 
         // 초기에는 버튼 비활성화
